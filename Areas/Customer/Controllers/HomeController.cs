@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using MilkyWeb.Models;
+using BookTrail.Models;
 using System.Diagnostics;
 
-namespace MilkyWeb.Controllers
+namespace BookTrailWeb.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
