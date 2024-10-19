@@ -1,52 +1,37 @@
 ﻿@model Category
 
 <form method="post">
-    <input asp-for="CategoryId" hidden />
-    <div class="border p-4 mt-5 shadow-sm bg-white rounded">
+    <input asp-for="CategoryId" hidden/>
+    <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <div class="col">
-                <div class="bg-primary text-white text-center p-3 rounded">
-                    <h1 class="mb-0">Update Category</h1>
-                </div>
-                <hr />
-            </div>
+            <h1 class="text-primary">Update Category</h1>
+            <hr />
+        </div>
+        @*To Show all errors summary *@
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="mb-3 row p-0">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-0">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
         </div>
 
-        <!-- To Show all errors summary -->
-        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
-
-        <!-- Category Name Input -->
-        <div class="mb-4 row">
-            <label asp-for="Name" class="col-sm-3 col-form-label fw-bold">Category Name</label>
-            <div class="col-sm-9">
-                <input asp-for="Name" class="form-control" placeholder="Enter category name" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-        </div>
-
-        <!-- Display Order Input -->
-        <div class="mb-4 row">
-            <label asp-for="DisplayOrder" class="col-sm-3 col-form-label fw-bold">Display Order</label>
-            <div class="col-sm-9">
-                <input asp-for="DisplayOrder" class="form-control" placeholder="Enter display order" />
-                <span asp-validation-for="DisplayOrder" class="text-danger"></span>
-            </div>
-        </div>
-
-        <!-- Buttons -->
         <div class="row">
-            <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-primary w-100">Update</button>
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Update</button>
             </div>
-            <div class="col-12 col-md-3 mt-2 mt-md-0">
-                <a asp-controller="Category" asp-action="Index" class="btn btn-secondary w-100">
+            <div class="col-6 col-md-3">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-secondary border form-control">
                     Back to List
                 </a>
             </div>
         </div>
     </div>
 </form>
-
 
 @* Adding client side validation (we need to use JS) *@
 @section Scripts {
