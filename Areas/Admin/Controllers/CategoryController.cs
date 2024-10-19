@@ -69,7 +69,6 @@ namespace BookTrailWeb.Areas.Admin.Controllers
             }
             return View();
         }
-
         public IActionResult Delete(int? id)
         {
             if (id is null or 0)
